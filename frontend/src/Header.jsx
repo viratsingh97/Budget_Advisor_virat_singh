@@ -1,38 +1,63 @@
 import React, { useState } from 'react';
 
 function Header({ currentPage, onPageChange }) {
-    const [isOpen, setIsOpen] = useState(false);
+    const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     return (
-        <header className="main-header">
+        <>
+            {/* HEADER SECTION */}
+            <header className="main-header">
+                <div className="header-nav-container">
+                    <h1 className="header-title">BudgetWise</h1>
 
-            {/* Top bar with menu icon + BudgetWise text */}
-            <div className="top-bar">
-                <div className="menu-icon" onClick={() => setIsOpen(!isOpen)}>
-                    ☰
+                    {/* Hamburger Button */}
+                    <button className="menu-btn" onClick={() => setSidebarOpen(true)}>
+                        ☰
+                    </button>
                 </div>
-                <h1 className="logo">BudgetWise</h1>
-            </div>
+            </header>
 
-            {/* Sliding Sidebar */}
-            <nav className={`sidebar ${isOpen ? 'open' : ''}`}>
-                <ul className="nav-menu">
-                    <li className={currentPage === 'Dashboard' ? 'active' : ''}>
-                        <a onClick={() => onPageChange('Dashboard')}>Dashboard</a>
+            {/* SIDEBAR SECTION */}
+            <div className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+                
+                {/* Close Button */}
+                <button className="close-btn" onClick={() => setSidebarOpen(false)}>
+                    ×
+                </button>
+
+                <ul className="sidebar-menu">
+
+                    <li 
+                        className={currentPage === 'Dashboard' ? 'active' : ''} 
+                        onClick={() => { onPageChange('Dashboard'); setSidebarOpen(false); }}
+                    >
+                        Dashboard
                     </li>
-                    <li className={currentPage === 'Transaction' ? 'active' : ''}>
-                        <a onClick={() => onPageChange('Transaction')}>Transactions</a>
+
+                    <li 
+                        className={currentPage === 'Transaction' ? 'active' : ''} 
+                        onClick={() => { onPageChange('Transaction'); setSidebarOpen(false); }}
+                    >
+                        Transactions
                     </li>
-                    <li className={currentPage === 'Budget' ? 'active' : ''}>
-                        <a onClick={() => onPageChange('Budget')}>Budget</a>
+
+                    <li 
+                        className={currentPage === 'Budget' ? 'active' : ''} 
+                        onClick={() => { onPageChange('Budget'); setSidebarOpen(false); }}
+                    >
+                        Budget
                     </li>
-                    <li className={currentPage === 'Profile' ? 'active' : ''}>
-                        <a onClick={() => onPageChange('Profile')}>Profile</a>
+
+                    <li 
+                        className={currentPage === 'Profile' ? 'active' : ''} 
+                        onClick={() => { onPageChange('Profile'); setSidebarOpen(false); }}
+                    >
+                        Profile
                     </li>
+
                 </ul>
-            </nav>
-
-        </header>
+            </div>
+        </>
     );
 }
 

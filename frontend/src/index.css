@@ -251,210 +251,93 @@ button[type="submit"]:hover {
     margin-bottom: 15px;
   }
 }
+/* ============================= */
+/* HEADER + SIDEBAR FOR DASHBOARD */
+/* ============================= */
 
-
-/*update */
-/* -------------------- Sidebar Styles -------------------- */
-
-/* Convert header into left sidebar */
-.main-header.sidebar {
-    width: 220px;
-    height: 100vh;
-    position: fixed;
-    left: 0;
-    top: 0;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    padding-top: 20px;
-    z-index: 1000;
-
-    /* Optional: remove horizontal layout spacing from old header */
+/* Header bar styling */
+.main-header {
+  background-color: #0A192F;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #1C2B40;
 }
 
-/* Stack menu items vertically */
-.header-components .nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.header-title {
+  color: #FFD700;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-/* Shift the main app content to the right */
-.main-content {
-    margin-left: 220px;
-}
-/* ---------------- Sidebar Animation ---------------- */
-
-.main-header.sidebar {
-    width: 240px;
-    height: 100vh;
-    position: fixed;
-    left: -260px;       /* Initially hidden */
-    top: 0;
-    background-color: #0A192F; 
-    padding: 20px;
-    transition: left 0.35s ease-in-out;
-    z-index: 2000;
-}
-
-.main-header.sidebar.open {
-    left: 0;  /* Slide in */
-}
-
-/* Vertical menu */
-.header-components .nav-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.header-title h1 {
-    color: #FFD700;
-}
-
-/* Main content shifts only when open */
-body.sidebar-open .main-content {
-    margin-left: 240px;
-    transition: margin-left 0.35s ease;
-}
-
-/* ---------------- Hamburger Button ---------------- */
-
+/* Hamburger Menu Button */
 .menu-btn {
-    position: fixed;
-    top: 15px;
-    left: 15px;
-    font-size: 28px;
-    background: transparent;
-    border: none;
-    color: #FFD700;
-    cursor: pointer;
-    z-index: 3000;
-    transition: 0.3s;
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 30px;
+  cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .menu-btn:hover {
-    transform: scale(1.1);
-    color: #ffffff;
-}
-/* Top bar */
-.top-bar {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    padding: 15px;
-    background: #001f3f;
-    color: #fff;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 20;
+  color: #E6C200;
 }
 
-/* Logo (BudgetWise) outside sidebar */
-.logo {
-    font-size: 24px;
-    font-weight: 900;
-    color: #ffd700;
-}
+/* ============================= */
+/* SIDEBAR */
+/* ============================= */
 
-/* Hamburger Menu */
-.menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-    color: #ffd700;
-}
-
-/* Sidebar */
 .sidebar {
-    position: fixed;
-    top: 60px; /* below the top bar */
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: #001a33;
-    padding: 30px 20px;
-    transition: left 0.3s ease;
-    z-index: 15;
-}
-
-/* Sidebar open */
-.sidebar.open {
-    left: 0;
-}
-
-/* Menu Styles */
-.nav-menu {
-    list-style: none;
-    padding: 0;
-    margin-top: 20px;
-}
-
-.nav-menu li {
-    margin: 18px 0;
-}
-
-.nav-menu li a {
-    color: #ddd;
-    text-decoration: none;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.nav-menu li.active a {
-    font-weight: bold;
-    color: #ffd700;
-}
-/* Force Sidebar Vertical Layout */
-.sidebar {
-    position: fixed;
-    top: 60px; 
-    left: -250px;
-    width: 250px;
-    height: 100%;
-    background: #001a33;
-    padding: 30px 20px;
-    transition: left 0.3s ease;
-    z-index: 15;
-
-    /* NEW FIX: force vertical menu */
-    display: flex;
-    flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: -260px;
+  height: 100%;
+  width: 250px;
+  background-color: #1C2B40;
+  padding: 20px;
+  color: #F8F9FA;
+  transition: left 0.3s ease;
+  z-index: 3000;
 }
 
 .sidebar.open {
-    left: 0;
+  left: 0;
 }
 
-/* Fix nav-menu so it is vertical */
-.nav-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;    /* VERTICAL */
-    gap: 15px;                 /* spacing between items */
+/* Sidebar Close Button */
+.close-btn {
+  background: none;
+  border: none;
+  color: #FFD700;
+  font-size: 32px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: 0.3s ease;
 }
 
-/* Fix each menu item */
-.nav-menu li {
-    width: 100%;
+.close-btn:hover {
+  color: #E6C200;
 }
 
-.nav-menu li a {
-    color: #ddd;
-    font-size: 18px;
-    text-decoration: none;
-    display: block;
-    width: 100%;
-    padding: 8px 5px;
+/* Sidebar Menu */
+.sidebar-menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
-.nav-menu li.active a {
-    color: #ffd700;
-    font-weight: bold;
-    border-bottom: 2px solid #ffd700;
+.sidebar-menu li {
+  padding: 15px 12px;
+  border-bottom: 1px solid #2D3748;
+  cursor: pointer;
+  font-size: 1.1rem;
+  transition: 0.25s ease;
+}
+
+.sidebar-menu li:hover,
+.sidebar-menu li.active {
+  background-color: #2D3748;
+  color: #FFD700;
 }
